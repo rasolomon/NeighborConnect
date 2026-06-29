@@ -1,0 +1,37 @@
+### Get reviews
+GET http://localhost:8080/reviews
+
+### Create Review
+POST http://localhost:8080/reviews
+Content-Type: application/json
+
+{
+  "description":"wonderful service!!!",
+  "rating": 9,
+  "reviewer": {
+    "id": 32
+  },
+  "provider": {
+    "id": 31
+  }
+}
+
+### Update Review
+PUT http://localhost:8080/reviews/5
+Content-Type: application/json
+
+{
+  "description":"perfect service!!!",
+  "rating": 10,
+  "reviewer": {
+    "id": 32,
+    "name": "Robert Reviewer1"
+  },
+  "provider": {
+    "id": 31,
+    "name": "Robert Provider1"
+  }
+}
+
+### Delete review
+DELETE http://localhost:8080/reviews

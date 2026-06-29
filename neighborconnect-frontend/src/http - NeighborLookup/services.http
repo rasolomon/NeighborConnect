@@ -1,0 +1,25 @@
+### Get services
+GET http://localhost:8080/services
+
+### Create Service
+POST http://localhost:8080/services
+Content-Type: application/json
+
+{
+  "name":"FUCK HOUSES",
+  "category": { "id":13 }
+}
+
+
+
+### Update Service
+PUT http://localhost:8080/services/11
+Content-Type: application/json
+
+{
+  "name":"delete computer service",
+  "category": { "id":12 }
+}
+
+### Delete Service
+DELETE http://localhost:8080/services/12

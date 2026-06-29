@@ -1,0 +1,47 @@
+### Get offers
+GET http://localhost:8080/offers
+
+### Create offer
+POST http://localhost:8080/offers
+Content-Type: application/json
+
+{
+          "title":"",
+          "price":0,
+          "originalPrice":0,
+          "imageUrl":"http://sevenmilemarket.com/artscroll_logo",
+          "expirationTime":"2026-05-31T20:02:15.123",
+          "pickupWindow":"Monday night at 7:00pm",
+          "location":"Shabsis on Reisterstown Road",
+          "inventoryCount":"0",
+          "active":true,
+          "category":"whatever",
+          "businessId":8
+         
+}
+
+
+### Update offer
+PUT http://localhost:8080/offers/3
+Content-Type: application/json
+
+{
+          "title":"Updated deal on Feldheim Books",
+          "price":30.89,
+          "originalPrice":128.39,
+          "imageUrl":"http://shabsis.com/artscroll_logo",
+          "expirationTime":"2026-05-31T20:02:15.123",
+          "pickupWindow":"Monday night at 7:00pm",
+          "location":"Shabsis on Reisterstown Road",
+          "inventoryCount":"30",
+          "active":true,
+          "category":"Feldheim Deals",
+          "business":{ "id":8 }        
+}
+
+### Delete offer
+DELETE http://localhost:8080/offers/4
+
+### Delete All offers
+DELETE http://localhost:8080/offers
+

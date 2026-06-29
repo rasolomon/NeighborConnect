@@ -1,0 +1,42 @@
+### Get businesses
+GET http://localhost:8080/businesses
+
+### Create business
+POST http://localhost:8080/businesses
+Content-Type: application/json
+
+{
+          "name":"f",
+          "address":"3643 Reisterstown Rd",
+          "city":"Baltimore",
+          "state":"MD",
+          "zipCode":"21215",
+          "phone":"301-775-1235",
+          "email":"shabsis@@@@hotmail.com",
+          "description":"abc defg",
+          "ownerId": 53
+}
+
+
+### Update business
+PUT http://localhost:8080/businesses/9
+Content-Type: application/json
+
+{
+          "name":"Seven Mile Market",
+          "address":"4000 Reisterstown Rd",
+          "city":"Baltimore",
+          "state":"MD",
+          "zipCode":"21208",
+          "phone":"301-775-1235",
+          "email":"7milemarket@gmail.com",
+          "description":"Adios Amigos!",
+          "owner": { "id":42 }
+}
+
+### Delete business
+DELETE http://localhost:8080/businesses/35
+
+### Delete All businesses
+DELETE http://localhost:8080/businesses
+

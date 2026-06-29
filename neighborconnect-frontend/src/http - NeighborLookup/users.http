@@ -1,0 +1,40 @@
+### Get users
+GET http://localhost:8080/users
+
+### Create user
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+          "name":"Robbie",
+          "address":"3643 Bancroft Rd",
+          "city":"Baltimore",
+          "state":"MD",
+          "zipCode":"21215",
+          "phone":"301-775-1235",
+          "email":"shitEmailAddress",
+          "description":"abc defg"
+}
+
+
+### Update User
+PUT http://localhost:8080/users/40
+Content-Type: application/json
+
+{
+          "name":"Robert UPDATE!!!!",
+          "address":"asdfdsafd Bancroft Rd",
+          "city":"Baltimore",
+          "state":"MD",
+          "zipCode":"21215",
+          "phone":"301-775-1235",
+          "email":"rasolomon@gmail.com",
+          "description":"Adios Amigos!"
+}
+
+### Delete user
+DELETE http://localhost:8080/users/53
+
+### Delete All Users
+DELETE http://localhost:8080/users
+
