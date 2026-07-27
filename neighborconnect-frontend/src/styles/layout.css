@@ -1,8 +1,3 @@
-/*
-.app-layout {
-    border: 3px solid red;
-}
-*/
 
 .main-layout {
     display: flex;
@@ -15,4 +10,33 @@
 
 .content {
     flex: 1;
+}
+
+.category-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+.category-list li {
+    display: flex;
+    align-items: center;    
+    gap: 10px;
+
+}
+
+.searchArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+
+.searchIcons {
+    display: flex;
+    flex-direction: row;
+     align-items: center;
+   gap: .5rem;
 }

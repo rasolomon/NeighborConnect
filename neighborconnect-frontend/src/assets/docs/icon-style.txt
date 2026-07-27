@@ -1,0 +1,19 @@
+This is the NeighborConnect Icon Style Guide:
+Create a SINGLE icon only. The icon should have a friendly glossy 3D appearance in a modern SaaS/mobile app style with soft gradients, subtle highlights, rounded shapes, and a clean, professional look. Use a transparent background. The icon should be perfectly centered and occupy about 75–80% of the canvas. Do not include any text, labels, borders, drop shadows outside the icon, additional objects, or multiple icons. Do NOT create an icon sheet or collage. Create exactly ONE icon. Output as a high-quality 512×512 PNG suitable for use in a React web application.
+
+
+Use the NeighborConnect Icon Style Guide. Create the Home Services icon.
+Use the NeighborConnect Icon Style Guide. Create the Family icon.
+Use the NeighborConnect Icon Style Guide. Create the Food icon.
+Use the NeighborConnect Icon Style Guide. Create the Automotive icon.
+Use the NeighborConnect Icon Style Guide. Create the Health icon.
+Use the NeighborConnect Icon Style Guide. Create the Jobs icon.
+Use the NeighborConnect Icon Style Guide. Create the Technology icon.
+Use the NeighborConnect Icon Style Guide. Create the Professional Services icon.
+
+Use the NeighborConnect Icon Style Guide. Create the Community icon.
+Use the NeighborConnect Icon Style Guide. Create the Star icon.
+Use the NeighborConnect Icon Style Guide. Create the Checkmark icon.
+Use the NeighborConnect Icon Style Guide. Create the Recently Added icon.
+Use the NeighborConnect Icon Style Guide. Create the Community Standards Torah Scroll icon.
+Use the NeighborConnect Icon Style Guide. Create the ABC icon.

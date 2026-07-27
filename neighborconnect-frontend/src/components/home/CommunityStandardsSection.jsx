@@ -1,8 +1,9 @@
+import communityStandards from '../../assets/images/community_standards.png'; 
 
 export default function CommunityStandardsSection() {
     return (
         <section>
-            <h2>Community Standards</h2>
+            <h3>Community Standards</h3>
         </section>
     );
 }

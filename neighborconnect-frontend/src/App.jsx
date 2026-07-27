@@ -7,7 +7,6 @@ function App() {
   // Used to run <Users /> as the root JSX but not now...
   return (
     <div className="app">
-      <h1>NeighborConnect</h1>
         <MainLayout  />
     </div>
   );
