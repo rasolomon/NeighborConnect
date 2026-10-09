@@ -9,5 +9,8 @@ import java.util.List;
 @Data
 public class CategoryRequestDto {
     private String name;
+    private String icon;
+    private String message;
+
     private List<ServiceSummaryDto> services;
 }

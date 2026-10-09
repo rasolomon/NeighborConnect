@@ -1,6 +1,9 @@
 ### Get businesses
 GET http://localhost:8080/businesses
 
+### Get one business
+GET http://localhost:8080/businesses/27
+
 ### Create business
 POST http://localhost:8080/businesses
 Content-Type: application/json

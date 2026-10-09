@@ -1,5 +1,6 @@
+// TODO:  Get from database and public folder in the future
 import popular from '../../assets/images/popular.png';
-import homeServices from '../../assets/images/home_services.png';
+import homeServices from '../../assets/images/homeServices.png';
 import family from '../../assets/images/family.png';
 import health from '../../assets/images/health.png';
 import jobs from '../../assets/images/jobs.png';
@@ -19,7 +20,7 @@ export default function SearchSection() {
                 <img src={family} className="category-icon" alt="Family" />Family
                 <img src={health} className="category-icon" alt="Health" />Health
                 <img src={jobs} className="category-icon" alt="Jobs" />Jobs<p />
-            <button>Browse Businesses</button> <button>Browse Offers</button>
+            <button className="btn btn-primary me-2">Browse Businesses</button> <button className="btn btn-success">Browse Offers</button>
             </center>
 
         </section>

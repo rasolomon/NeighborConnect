@@ -26,3 +26,7 @@ ul,
 ol {
     list-style: none;
 }
+
+textarea {
+  vertical-align: top; /* Forces the label to snap to the top line */
+}

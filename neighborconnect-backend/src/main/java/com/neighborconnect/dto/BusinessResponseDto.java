@@ -13,7 +13,9 @@ public class BusinessResponseDto {
     private Integer zipCode;
     private String phone;
     private String email;
+    private String website;
     private String description;
     private String logo;
     private UserSummaryDto owner;
+    private CategorySummaryDto category;
 }

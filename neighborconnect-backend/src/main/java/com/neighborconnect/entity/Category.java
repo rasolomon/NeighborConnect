@@ -20,8 +20,14 @@ public class Category {
     private Long id;
 
     private String name;
+    private String icon;
+    private String message;
 
     @OneToMany(mappedBy = "category")
     @JsonManagedReference
     private List<Service> services;
+
+    @OneToMany(mappedBy = "category")
+    @JsonManagedReference
+    private List<Business> businesses;
 }

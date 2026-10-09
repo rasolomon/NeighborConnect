@@ -1,4 +1,4 @@
-import communityStandards from '../../assets/images/community_standards.png'; 
+//import communityStandards from '../../assets/images/communityStandards.png'; 
 
 export default function CommunityStandardsSection() {
     return (

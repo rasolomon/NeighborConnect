@@ -13,10 +13,10 @@
 }
 
 .category-icon {
-    width: 24px;
-    height: 24px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 .category-list li {
@@ -39,4 +39,38 @@
     flex-direction: row;
      align-items: center;
    gap: .5rem;
+}
+
+
+.trust-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.trust-item span {
+    display: block;
+    flex: 1;
+}
+
+.checkmark-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.item-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.button-row {
+  display: flex;         /* Activates Flexbox layout */
+  gap: 5px;             /* Creates clean, uniform spacing between buttons */
+  justify-content: flex-end; /* Controls positioning (flex-start, center, flex-end) */
 }

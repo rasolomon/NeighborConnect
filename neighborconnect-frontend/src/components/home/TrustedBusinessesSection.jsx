@@ -1,27 +1,78 @@
-import star from '../../assets/images/star.png'; 
-import checkmark from '../../assets/images/checkmark.png'; 
+import { useEffect, useState } from "react";
+import BusinessModal from "../../components/BusinessModal";
+
 
 export default function TrustedBusinessesSection() {
+    const [businesses, setBusinesses] = useState([]);
+    const [selectedBusiness, setSelectedBusiness] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+
+    // UseEffect 1:  when the component loads, fetch the businesses from your backend.
+    useEffect(() => {
+        loadBusinesses();
+    }, []);
+
+    // UseEffect 2:  when the modal is open, listen for the keyboard and respond to Escape.
+    useEffect(() => {
+        if (!showModal) return;
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setShowModal(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [showModal]);
+
+    // Refresh Businesses
+    const loadBusinesses = () => {
+        fetch("http://localhost:8080/businesses")
+            .then(response => response.json())
+            .then(data => setBusinesses(data));
+    };
+
+    // Show Business Modal (This will be Business.jsx)
+    const handleShowBusiness = (business) => {
+        setSelectedBusiness(business);
+        setShowModal(true);
+    };
+
     return (
         <section>
-            <h3>Trusted Businesses</h3>
-            <b>David's Plumbing</b><br />
-            <ul className="category-list">
-             <li><img src={checkmark} className="category-icon" alt="Checkmark" /> Serving Baltimore since</li>
-             <li><img src={checkmark} className="category-icon" alt="Checkmark" /> Licensed</li>
-             <li><img src={checkmark} className="category-icon" alt="Checkmark" /> Insured</li>
-             <li><img src={checkmark} className="category-icon" alt="Checkmark" /> Community Recommended</li>
-             <li><img src={checkmark} className="category-icon" alt="Checkmark" /> Verified Business</li>
-             </ul>
-             [Contact Business]
+            <h3 className="mb-4">Trusted Businesses</h3>
+            <div className="row g-4">
+                {businesses.map((business) => (
+                    <div className="col-md-4" key={business.name}>
+                        <div className="card h-100">
+                            <div className="card-body">
+                                <h5 className="card-title">{business.name}</h5>
+                                <p className="card-text">
+                                    {business.description}
+                                </p>
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={() => handleShowBusiness(business)}
+                                >
+                                    View Business
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
 
-            <p></p>
-            <b>Sarah's Tutoring</b><br />
-            <ul className="category-list">
-             <li><img src={checkmark} className="category-icon" alt="Checkmark" /> Supporting and Empowering Students since 2024</li>
-             <li><img src={checkmark} className="category-icon" alt="Checkmark" /> Community Recommended </li>
-             </ul>
-             [Contact Business]<br />
+            {showModal && selectedBusiness && (
+                <BusinessModal
+                    business={selectedBusiness}
+                    onClose={() => setShowModal(false)}
+                />
+            )}
+
         </section>
     );
 }

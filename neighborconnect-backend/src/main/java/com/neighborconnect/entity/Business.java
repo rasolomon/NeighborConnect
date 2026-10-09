@@ -27,8 +27,12 @@ public class Business {
     private String email;
     private String description;
     private String logo;
+    private String website;
 
     @ManyToOne
     private User owner;
+
+    @ManyToOne
+    private Category category;
 
 }

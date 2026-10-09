@@ -66,6 +66,9 @@ public class CategoryService {
 
         dto.setId(entity.getId());
         dto.setName(entity.getName());
+        dto.setIcon(entity.getIcon());
+        dto.setMessage(entity.getMessage());
+
         if (entity.getServices() != null) {
             List<ServiceSummaryDto> dtos =
                     entity.getServices()
@@ -89,6 +92,8 @@ public class CategoryService {
         Category entity = new Category();
 
         entity.setName(dto.getName());
+        entity.setIcon(dto.getIcon());
+        entity.setMessage((dto.getMessage()));
         if (dto.getServices() != null) {
             List<Service> entities =
                     dto.getServices()

@@ -25,4 +25,6 @@ public class BusinessRequestDto {
     private String description;
     private String logo;
     private Long ownerId;
+    private Long categoryId;
+    private String website;
 }

@@ -8,9 +8,9 @@ export default function MainLayout() {
         <div className="app-layout">
             <Header />
 
-            <div className="main-layout">
-                <Sidebar />
-                <Content />
+            <div className="row">
+                <div className="col-3"><Sidebar /></div>
+                <div className="col-9"><Content /></div>
             </div>
 
             <Footer />

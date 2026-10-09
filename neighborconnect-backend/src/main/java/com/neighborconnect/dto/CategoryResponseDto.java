@@ -10,5 +10,8 @@ import java.util.List;
 public class CategoryResponseDto {
     private Long id;
     private String name;
+    private String icon;
+    private String message;
+
     private List<ServiceSummaryDto> services;
 }

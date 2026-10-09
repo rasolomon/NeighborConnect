@@ -3,9 +3,11 @@ package com.neighborconnect.service;
 import com.neighborconnect.dto.*;
 import com.neighborconnect.dto.BusinessResponseDto;
 import com.neighborconnect.entity.Business;
+import com.neighborconnect.entity.Category;
 import com.neighborconnect.entity.User;
 import com.neighborconnect.exception.ResourceNotFoundException;
 import com.neighborconnect.repository.BusinessRepository;
+import com.neighborconnect.repository.CategoryRepository;
 import com.neighborconnect.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -21,6 +23,9 @@ public class BusinessService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    CategoryRepository categoryRepository;
 
     public List<BusinessResponseDto> getAllBusinesses() {
         List<BusinessResponseDto> businessDtos =  repository.findAll(Sort.by("name"))
@@ -76,12 +81,20 @@ public class BusinessService {
         dto.setZipCode(entity.getZipCode());
         dto.setPhone(entity.getPhone());
         dto.setEmail(entity.getEmail());
+        dto.setWebsite(entity.getWebsite());
         dto.setDescription(entity.getDescription());
         dto.setLogo(entity.getLogo());
+
         UserSummaryDto dto2 = new UserSummaryDto();
         dto2.setId(entity.getOwner().getId());
         dto2.setName(entity.getOwner().getName());
         dto.setOwner(dto2);
+
+        CategorySummaryDto dto3 = new CategorySummaryDto();
+        dto3.setId(entity.getCategory().getId());
+        dto3.setName(entity.getCategory().getName());
+        dto.setCategory(dto3);
+
         return dto;
     }
 
@@ -98,12 +111,19 @@ public class BusinessService {
         entity.setEmail(dto.getEmail());
         entity.setDescription(dto.getDescription());
         entity.setLogo(dto.getLogo());
+        entity.setWebsite(dto.getWebsite());
 
         User entity2 = userRepository.findById(dto.getOwnerId())
                 .orElseThrow(() ->
                         new ResourceNotFoundException(
                                 "User not found with id " + dto.getOwnerId()));
         entity.setOwner(entity2);
+
+        Category entity3 = categoryRepository.findById(dto.getCategoryId())
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Category not found with id " + dto.getCategoryId()));
+        entity.setCategory(entity3);
         return entity;
     }
 
