@@ -1,5 +1,6 @@
 package com.neighborconnect.controller;
 
+import com.neighborconnect.dto.BusinessResponseDto;
 import com.neighborconnect.dto.CategoryRequestDto;
 import com.neighborconnect.dto.CategoryResponseDto;
 import com.neighborconnect.entity.Category;
@@ -26,6 +27,11 @@ public class CategoryController {
     @GetMapping("/{id}")
     public CategoryResponseDto getCategoryById(@PathVariable Long id) {
         return service.getCategoryById(id);
+    }
+
+    @GetMapping("/{id}/businesses")
+    public List<BusinessResponseDto> getBusinessesByCategoryId(@PathVariable Long id) {
+        return service.getBusinessesByCategoryId(id);
     }
 
     @PostMapping

@@ -1,32 +1,9 @@
 import { useEffect, useState } from "react";
-
-/*
-import homeServices from '../../assets/images/home_services.png';
-import family from '../../assets/images/family.png';
-import food from '../../assets/images/food.png';
-import automotive from '../../assets/images/auto.png';
-import health from '../../assets/images/health.png';
-import community from '../../assets/images/community.png';
-import jobs from '../../assets/images/jobs.png';
-import technology from '../../assets/images/technology.png';
-import professionalServices from '../../assets/images/professional_services.png';
-*/
-/*
-const categories = [
-    { name: 'Home Services', icon: homeServices, message: 'Find trusted businesses for your home.' },
-    { name: 'Family', icon: family, message: 'Find services and resources for your family.' },
-    { name: 'Food', icon: food, message: 'Discover local food, restaurants, and more.' },
-    { name: 'Automotive', icon: automotive, message: 'Find reliable automotive services nearby.' },
-    { name: 'Health', icon: health, message: 'Find health, wellness, and care services.' },
-    { name: 'Community', icon: community, message: 'Connect with businesses and services in your community.' },
-    { name: 'Jobs', icon: jobs, message: 'Find local jobs and employment opportunities.' },
-    { name: 'Technology', icon: technology, message: 'Find technology services and local experts.' },
-    { name: 'Professional Services', icon: professionalServices, message: 'Find trusted professionals for your needs.' }
-];
-*/
+import { useNavigate } from "react-router-dom";
 
 export default function CategorySection() {
     const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [showModal, setShowModal] = useState(false);
 
@@ -46,8 +23,8 @@ export default function CategorySection() {
     };
     // Show Category Modal (This will eventually be Category.jsx)
     const handleShowBusinessesInCategory = (category) => {
-        setSelectedCategory(category);
-        setShowModal(true);
+        // Use this to call React Router - in Content.jsx layout section!
+        navigate(`/categories/${category.id}`);
     };
 
     return (

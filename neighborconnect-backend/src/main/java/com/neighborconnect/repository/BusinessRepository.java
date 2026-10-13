@@ -1,11 +1,13 @@
 package com.neighborconnect.repository;
 
 import com.neighborconnect.entity.Business;
-import com.neighborconnect.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface BusinessRepository
         extends JpaRepository<Business, Long> {
+    List<Business> findAllByCategory_IdOrderByNameAsc(Long id);
 }

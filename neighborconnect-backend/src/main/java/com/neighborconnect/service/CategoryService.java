@@ -1,11 +1,13 @@
 package com.neighborconnect.service;
 
+import com.neighborconnect.dto.BusinessResponseDto;
 import com.neighborconnect.dto.CategoryRequestDto;
 import com.neighborconnect.dto.CategoryResponseDto;
 import com.neighborconnect.dto.ServiceSummaryDto;
 import com.neighborconnect.entity.Category;
 import com.neighborconnect.entity.Service;
 import com.neighborconnect.exception.ResourceNotFoundException;
+import com.neighborconnect.repository.BusinessRepository;
 import com.neighborconnect.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -18,6 +20,12 @@ import java.util.List;
 public class CategoryService {
     @Autowired
     CategoryRepository repository;
+
+    @Autowired
+    BusinessRepository businessRepository;
+
+    @Autowired
+    BusinessService businessService;
 
     public List<CategoryResponseDto> getAllCategories() {
         List<CategoryResponseDto> categoryResponseDtos =  repository.findAll(Sort.by("name"))
@@ -32,6 +40,19 @@ public class CategoryService {
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Category not found with id " + id));
         return(convertToDto(entity));
+    }
+
+    public List<BusinessResponseDto> getBusinessesByCategoryId (Long id) {
+        List<BusinessResponseDto> businessResponseDtos =  businessRepository.findAllByCategory_IdOrderByNameAsc(id)
+                .stream()
+                .map(businessService::convertToDto)
+                .toList();
+
+        // test:
+        for(BusinessResponseDto dto : businessResponseDtos) {
+            System.out.println("-----> CategoryId: " + id + " Business: " + dto.getName() + ":" + dto.getCategory());
+        }
+        return businessResponseDtos;
     }
 
     public Category addCategory(CategoryRequestDto dto) {
